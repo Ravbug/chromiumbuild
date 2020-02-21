@@ -14,6 +14,7 @@ $Env:DEPOT_TOOLS_WIN_TOOLCHAIN = 0
 # run prereq installer
 Write-Output "Running gclient..."
 & "gclient"
+Write-Output "Confirming python"
 
 # Download chromium
 Write-Output "Downloading chromium source code..."
