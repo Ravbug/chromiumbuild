@@ -6,7 +6,7 @@ initial=`pwd`
 echo -e "\e[101m\e[97mPerforming initial git init\e[49m\e[39m"
 
 # setup the directories
-mkdir chromebuild && cd chromebuild
+mkdir chromiumbuild && cd chromiumbuild
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git --depth=1
 
 export PATH="$PATH:`pwd`/depot_tools"
@@ -40,7 +40,7 @@ mv out/Default/Chromium.app $initial
 # clean up
 echo -e "\e[104m\e[97mCleaning up\e[49m\e[39m"
 cd $initial
-rm -rf chromebuild
+rm -rf chromiumbuild
 
 echo -e "\e[102m\e[97mBuild Complete\e[49m\e[39m"
 open . 

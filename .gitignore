@@ -1,3 +1,4 @@
-chromebuild/
+chromiumbuild/
+depot_tools/
 *.DS_Store
 
