@@ -7,9 +7,6 @@ if not exist depot_tools/ (
 	powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('depot_tools.zip', 'depot_tools'); }"
 	del /f depot_tools.zip
 )
-else (
-	echo depot_tools already downloaded
-)
 
 :: set environment variables
 set DEPOT_TOOLS_WIN_TOOLCHAIN=0
