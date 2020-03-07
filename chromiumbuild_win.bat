@@ -1,10 +1,15 @@
 @echo off
 
 :: Download depot_tools and expand it
-echo Downloading depot_tools
-::bitsadmin /transfer depot_tools /priority high https://storage.googleapis.com/chrome-infra/depot_tools.zip %CD%\depot_tools.zip
-::powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('depot_tools.zip', 'depot_tools'); }"
-del /f depot_tools.zip
+if not exist depot_tools/ (
+	echo Downloading depot_tools
+	bitsadmin /transfer depot_tools /priority high https://storage.googleapis.com/chrome-infra/depot_tools.zip %CD%\depot_tools.zip
+	powershell.exe -nologo -noprofile -command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('depot_tools.zip', 'depot_tools'); }"
+	del /f depot_tools.zip
+)
+else (
+	echo depot_tools already downloaded
+)
 
 :: set environment variables
 set DEPOT_TOOLS_WIN_TOOLCHAIN=0
